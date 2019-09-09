@@ -1,0 +1,10 @@
+.product {
+  height: 100%;
+
+  &__description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
