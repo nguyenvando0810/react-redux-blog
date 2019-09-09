@@ -3,13 +3,11 @@ import { connect } from 'react-redux'
 import { getProductsRequest } from './../actions/index'
 import Home from './../views/Home/home'
 import Product from './../views/Home/components/product/product'
-import Button from 'react-bootstrap/Button'
-
 class HomeContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      visibleItem: 5
+      visibleItem: 3
     }
 
     this.loadMore = this.loadMore.bind(this)
@@ -24,22 +22,16 @@ class HomeContainer extends React.Component {
 
     return (
       <div className="Home">
-        <Home>
+        <Home loadMore={this.loadMore} products={products} visibleItem={visibleItem}>
           {this.showListProducts(products)}
         </Home>
-
-        {products.length > 0 && products.length > visibleItem &&
-          <div className="text-right">
-            <Button variant="outline-primary" size="md" onClick={this.loadMore}>Load More</Button>
-          </div>
-        }
       </div>
     )
   }
 
   loadMore() {
     this.setState((state) => ({
-      visibleItem: state.visibleItem + 5
+      visibleItem: state.visibleItem + 3
     }), () => {
       console.log(this.state);
     })
