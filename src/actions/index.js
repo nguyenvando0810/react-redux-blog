@@ -15,3 +15,10 @@ export const getProductsRequest = () => {
     })
   }
 }
+
+export const login = (user) => {
+  return {
+    type: types.LOGIN,
+    user
+  }
+}

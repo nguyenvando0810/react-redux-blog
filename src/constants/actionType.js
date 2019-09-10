@@ -1,4 +1,5 @@
 export const GET_LIST = 'GET_LIST'
+export const LOGIN = 'LOGIN'
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const EDIT_PRODUCT = 'EDIT_PRODUCT'

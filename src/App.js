@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
 import NavBarProducts from './components/navbar/navbar'
-import routes from './routes'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
+import Home from './container/home'
+import NotFound from './views/NotFound/notFound'
+import Products from './views/Products/products'
+import Login from './container/login'
 
 class App extends React.Component {
   render() {
@@ -10,31 +13,16 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <NavBarProducts />
-          {this.showMenuContent(routes)}
+
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/products" component={Products} />
+            <Route path="/login" component={Login} />
+            <Route path="" component={NotFound} />
+          </Switch>
         </div>
       </Router>
     )
-  }
-
-  showMenuContent(routes) {
-    let result = null
-
-    if (routes.length > 0) {
-      result = routes.map((route, index) => {
-      console.log("TCL: App -> showMenuContent -> route", route)
-
-        return (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.main}
-          />
-        )
-      })
-    }
-
-    return <Switch>{result}</Switch>
   }
 }
 

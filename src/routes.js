@@ -3,8 +3,7 @@ import Home from './container/home'
 import NotFound from './views/NotFound/notFound'
 import Products from './views/Products/products'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     exact: true,
     main: () => < Home / >
